@@ -1,23 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from './Components/MyComponent';
+import Greeting from './Components/Greeting';
+import Counter from './Components/Counter';
+import Clock from './Components/Clock';
+import NameForm from './Components/NameForm';
+import { useState } from 'react';
 
 function App() {
+  const [greetingName, setGreetingName] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <NameForm onSubmit={(x) => {setGreetingName(x)}} />
+
+      <MyComponent />
+
+      <Greeting name={greetingName} message={"Hallådär blåbär"} />
+
+      <Greeting name={"Anna"} message={"Hej hej hej"} />
+
+      <Counter />
+
+      <Counter />
+
+      <Clock />
     </div>
   );
 }
